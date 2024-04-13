@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>killedbyeuclid</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        .card {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #ffffff; /* White */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: box-shadow 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .card h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 22px;
+            color: #212529; /* Dark Gray */
+        }
+        .card p {
+            margin-bottom: 0;
+            color: #6c757d; /* Gray */
+        }
+        .card a {
+            color: #007bff; /* Blue */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .card a:hover {
+            color: #0056b3; /* Darker Blue */
+        }
+        .card i {
+            margin-right: 5px;
+        }
+        .search-box {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ced4da; /* Gray */
+            border-radius: 5px;
+            background-color: #f8f9fa; /* Light Gray */
+        }
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .card {
+                padding: 15px;
+            }
+            .card h2 {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1 style="text-align: center; margin-bottom: 20px;">Killed by Euclid</h1>
+    
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search projects..." onkeyup="searchProjects()">
+    </div>
+
+    <div class="card">
+        <h2>Footprints App</h2>
+        <p>App for Team Footprints (Fine-Arts Society of AKGEC)</p>
+        <p><a href="https://github.com/EuclidStellar/kaleidoscope.fp"><i class="fab fa-github"></i>GitHub Repository</a></p>
+    </div>
+    
+    <div class="card">
+        <h2>Footprints Admin App</h2>
+        <p>Admin App for Team Footprints</p>
+        <p><a href="https://github.com/EuclidStellar/fp.panel"><i class="fab fa-github"></i>GitHub Repository</a></p>
+    </div>
+    
+    
+
+</div>
+
+<script>
+    function searchProjects() {
+        var input, filter, cards, card, title, i, txtValue;
+        input = document.getElementById("searchInput");
+        filter = input.value.toUpperCase();
+        cards = document.getElementsByClassName("card");
+        for (i = 0; i < cards.length; i++) {
+            card = cards[i];
+            title = card.getElementsByTagName("h2")[0];
+            txtValue = title.textContent || title.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
